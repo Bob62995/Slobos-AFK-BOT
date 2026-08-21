@@ -1,3 +1,17 @@
+const http = require('http');
+
+// Tell the platform we are alive by creating a basic web server
+const server = http.createServer((req, res) => {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end('Slobos AFK Bot is running!\n');
+});
+
+// Use the dynamic port provided by the platform, or default to 3000
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, '0.0.0.0', () => {
+    console.log(`Web server dashboard listening on port ${PORT}`);
+});
+
 const mineflayer = require('mineflayer');
 const { Movements, pathfinder, goals } = require('mineflayer-pathfinder');
 const { GoalBlock } = goals;
